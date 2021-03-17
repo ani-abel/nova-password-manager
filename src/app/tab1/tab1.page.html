@@ -1,0 +1,12 @@
+<!-- <app-navbar></app-navbar> -->
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar #searchField (keydown)="onSearch(searchField)">
+  </ion-searchbar>
+  <ion-list *ngIf="(allRecords$ | async) as allRecords">
+    <ion-item class="cursor-pointer" (click)="openSingleRecord(record.Id)" *ngFor="let record of allRecords">
+      <ion-label>{{ record.Label | uppercase}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+

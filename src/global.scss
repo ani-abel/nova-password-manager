@@ -1,0 +1,100 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+ion-title {
+  text-shadow: 2px 2px #ddd;
+  letter-spacing: 7px;
+}
+
+ion-label:not(.ignore-shadow),
+ion-card-title,
+i {
+  font-size: 25px;
+  text-shadow: 2px 2px #ddd;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+ion-card-title {
+  font-size: 18px;
+}
+
+ion-card-header {
+  text-align: center;
+}
+
+i {
+  font-size: 18px;
+}
+
+main {
+  padding: 0 10px;
+}
+
+ion-content {
+  img {
+    width: 100%;
+    height: 100px;
+  }
+}
+
+.error-group {
+  font-size: 14px;
+  margin: 3px 5px 0 5px;
+
+  span {
+    color: indianred;
+  }
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+ion-button {
+  i {
+    text-shadow: none;
+  }
+}
+
+ion-card-content {
+  ion-text {
+    font-size: 18px;
+  }
+}

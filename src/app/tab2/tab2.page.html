@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+
+<ion-content [fullscreen]="true">
+  <main>
+    <ion-item>
+      <ion-label>Add Record</ion-label>
+    </ion-item>
+
+    <form [formGroup]="newRecordForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label>Label</ion-label>
+        <ion-input type="text" [formControlName]="'label'"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Username</ion-label>
+        <ion-input type="text" [formControlName]="'username'"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input type="password" [formControlName]="'password'"></ion-input>
+      </ion-item>
+      <br />
+      <ion-button
+        [disabled]="newRecordForm.invalid"
+        expand="full"
+        color="primary"
+        type="submit"
+      >
+        Submit
+      </ion-button>
+    </form>
+  </main>
+</ion-content>

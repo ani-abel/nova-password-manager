@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+
+<ion-content>
+  <main>
+      <ion-item>
+        <ion-label>Login</ion-label>
+      </ion-item>
+
+      <form [formGroup]="loginForm"
+        *ngIf="(voiceItPhrases$ | async) as voiceItPhrases"
+        (ngSubmit)="onSubmit(voiceItPhrases[0]?.text)">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Voice Recording</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content *ngIf="!isRecordingStopped">
+            <img src="../../assets/image/music-sound.gif" />
+          </ion-card-content>
+          <ion-card-content>
+            <p class="text-center phrases-section">
+              Press the record button &amp; repeat this phrase:
+              <ion-text color="danger">
+                {{ voiceItPhrases[0]?.text }}
+              </ion-text>
+            </p>
+          </ion-card-content>
+
+          <ion-card-header>
+            <ion-button [disabled]="!isRecordingStopped"
+              (click)="startRecording()">
+              <i class="fa fa-microphone"></i>
+              Record
+            </ion-button>
+          </ion-card-header>
+        </ion-card>
+
+        <ion-item>
+          <ion-label>Username</ion-label>
+          <ion-input [formControlName]="'Username'"></ion-input>
+        </ion-item>
+        <p class="error-group"
+          *ngIf="loginForm.get('Username').touched && loginForm.get('Username').errors">
+          <span *ngIf="loginForm.get('Username').errors['email']">
+            This field must be an email
+          </span>
+          <span *ngIf="loginForm.get('Username').errors['required']">
+            This field is required
+          </span>
+        </p>
+
+        <br />
+        <ion-button
+          [disabled]="loginForm.invalid || !wavFile"
+          type="submit"
+          expand="full"
+          color="primary"
+          type="submit">
+          Login
+        </ion-button>
+      </form>
+      <p class="text-right">
+        Or <a [routerLink]="['/sign-up']">Sign up</a>
+      </p>
+  </main>
+</ion-content>

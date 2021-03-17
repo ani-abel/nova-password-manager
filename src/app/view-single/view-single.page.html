@@ -1,0 +1,63 @@
+<ion-header translucent="true">
+  <ion-toolbar>
+    <ion-buttons collapse="true" slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+    <ion-title>NOVA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <main *ngIf="(singleAuthRecord$ | async) as singleAuthRecord">
+    <ion-item>
+      <ion-label>{{ singleAuthRecord.Label | uppercase}}</ion-label>
+    </ion-item>
+    
+    <form [formGroup]="updateSingleRecordForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label>
+          Username 
+          <!-- <span class="cursor-pointer" 
+            (click)="copyToClipboard(username.value)">
+            <i class="fas fa-clipboard"></i>
+          </span> -->
+        </ion-label>
+        <ion-input [type]="'text'" 
+          #username
+          [formControlName]="'Username'"
+          (input)="onInput()">
+        </ion-input>
+        <span class="cursor-pointer" 
+            (click)="copyToClipboard(username.value)">
+            <i class="fas fa-clipboard"></i>
+          </span>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>
+          Password 
+          <!-- <span class="cursor-pointer"
+           (click)="copyToClipboard(password.value)">
+            <i class="fas fa-clipboard"></i>
+          </span> -->
+        </ion-label>
+        <ion-input [type]="'password'" 
+          #password
+          [formControlName]="'Password'" 
+          (input)="onInput()">
+        </ion-input>
+        <span class="cursor-pointer"
+           (click)="copyToClipboard(password.value)">
+            <i class="fas fa-clipboard"></i>
+          </span>
+      </ion-item>
+      <br />
+      <ion-button type="submit" 
+        expand="full" 
+        color="primary" 
+        [disabled]="!formDataWasChanged">
+        Update
+      </ion-button>
+    </form>
+  </main>
+</ion-content>

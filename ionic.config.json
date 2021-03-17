@@ -1,0 +1,7 @@
+{
+  "name": "nova-password-manager-v2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "origami-portal-ead60": {
+      "hosting": {
+        "app": [
+          "origami-portal-ead60"
+        ]
+      }
+    }
+  }
+}
